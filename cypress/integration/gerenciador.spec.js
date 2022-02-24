@@ -12,7 +12,6 @@ describe("My First Test", () => {
       method: "GET",
       url: "http://0.0.0.0:3000/filmes",
     }).as("buscarFilmes");
-    cy.wait("@buscarFilmes");
 
     const novoFilme = `Novo filme - ${new Date().toISOString()}`;
 
@@ -22,9 +21,8 @@ describe("My First Test", () => {
     cy.get("#bt-addfilme").click();
 
     cy.wait("@buscarFilmes");
-    cy.wait("@buscarFilmes");
-
-    cy.get(".nome-filme").contains(novoFilme);
+    cy.contains(novoFilme);
+    // filmes.contains(novoFilme);
   });
 
   it("Deve exibir mensagem de erro", () => {
@@ -32,7 +30,6 @@ describe("My First Test", () => {
       method: "GET",
       url: "http://0.0.0.0:3000/filmes",
     }).as("buscarFilmes");
-    cy.wait("@buscarFilmes");
     const novoFilme = `Novo filme - ${Math.random()}`;
 
     cy.get("#nome-filme").type(novoFilme);
@@ -40,7 +37,6 @@ describe("My First Test", () => {
     cy.get("#bt-addfilme").should("not.be.disabled");
     cy.get("#bt-addfilme").click();
 
-    cy.wait("@buscarFilmes");
     cy.wait("@buscarFilmes");
 
     cy.get("#nome-filme").type(novoFilme);

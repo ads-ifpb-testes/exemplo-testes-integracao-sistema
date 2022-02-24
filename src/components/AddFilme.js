@@ -24,7 +24,10 @@ const ErrorFilmeForm = styled.div.attrs({ id: "error" })`
   color: white;
 `;
 
-const ButtonAddFilme = styled.button.attrs({ id: "bt-addfilme" })`
+const ButtonAddFilme = styled.button.attrs({
+  id: "bt-addfilme",
+  type: "submit",
+})`
   font-size: 1.5rem;
   padding: 0 2rem;
   font-weight: bold;
