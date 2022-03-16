@@ -22,7 +22,6 @@ describe("My First Test", () => {
 
     cy.wait("@buscarFilmes");
     cy.contains(novoFilme);
-    // filmes.contains(novoFilme);
   });
 
   it("Deve exibir mensagem de erro", () => {
